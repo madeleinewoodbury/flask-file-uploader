@@ -14,5 +14,3 @@ cloudinary.config(
 
 import cloudinary.uploader
 import cloudinary.api
-
-SECRET = os.getenv('SECRET')

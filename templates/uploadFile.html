@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Upload new File</h1>
-<form method="post" action="{{url_for('upload')}}" enctype="multipart/form-data">
+<form method="post" action="{{url_for('routes.upload')}}" enctype="multipart/form-data">
     <input type="file" name="file">
     <input type="submit" value="Upload">
 </form>

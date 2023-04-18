@@ -14,3 +14,4 @@ class Image(db.Model):
     url = db.Column(db.String(255), nullable=False, unique=True)
     created_at = db.Column(db.DateTime(timezone=True), default=func.now())
     user = db.Column(db.String(50), db.ForeignKey('user.id'))
+    description = db.Column(db.String(150))
