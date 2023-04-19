@@ -1,6 +1,6 @@
-from flask import Blueprint, request, redirect, render_template, url_for
+from flask import Blueprint, redirect, render_template, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import login_user
+from flask_login import login_user, current_user
 from forms import RegisterForm, LoginForm
 from models import User
 from app import db
@@ -62,3 +62,4 @@ def login():
             print(err)
 
     return render_template('login.html', form=form)
+

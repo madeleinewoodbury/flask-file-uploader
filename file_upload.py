@@ -13,7 +13,7 @@ def upload_file(file):
     data = cloudinary.uploader.upload(file=filepath,
                                       use_filename=True,
                                       unique_filename=False,
-                                      folder='test')
+                                      folder='flask-gallery')
     os.remove(filepath)
     return data
 
