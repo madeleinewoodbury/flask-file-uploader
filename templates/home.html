@@ -5,6 +5,9 @@
     <h1>Welcome {{user.username}}</h1>
     {% endif %}
     <a href="{{url_for('routes.create_gallery')}}">New Gallery</a>
+    {% for gallery in galleries%}
+    <p>{{gallery.title}}</p>
+    {% endfor %}
 </section>
 
 {% endblock %}

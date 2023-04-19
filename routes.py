@@ -11,7 +11,8 @@ routes = Blueprint('routes', __name__)
 @routes.route('/home')
 @login_required
 def index():
-    return render_template('home.html', user=current_user)
+    galleries = Gallery.query.filter_by(user=current_user.id).all()
+    return render_template('home.html', user=current_user, galleries=galleries)
 
 @routes.route('/add-gallery', methods=['GET', 'POST'])
 @login_required
