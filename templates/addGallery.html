@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Create New Gallery</h1>
+<form method="post" action="{{url_for('routes.create_gallery')}}">
+    {{form.hidden_tag()}}
+    <div>
+        {{form.title.label}}
+        {{form.title}}
+    </div>
+    <div>
+        {{form.description.label}}
+        {{form.description}}
+    </div>
+    {{form.submit}}
+</form>
+
+{% endblock %}

@@ -4,7 +4,7 @@
     {% if user %}
     <h1>Welcome {{user.username}}</h1>
     {% endif %}
-    <a href="{{url_for('routes.upload')}}">Upload file</a>
+    <a href="{{url_for('routes.create_gallery')}}">New Gallery</a>
 </section>
 
 {% endblock %}

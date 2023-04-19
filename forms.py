@@ -23,3 +23,8 @@ class ImageForm(FlaskForm):
     file = FileField("Select file to upload", validators=[FileRequired(), FileAllowed(ALLOWED_EXTENSIONS)])
     description = TextAreaField("Description", validators=[Length(max=150)])
     submit = SubmitField("Upload")
+
+class GalleryForm(FlaskForm):
+    title = StringField("Gallery Title", validators=[DataRequired(), Length(min=1, max=50)])
+    description = TextAreaField("Description", validators=[Length(max=150)])
+    submit = SubmitField("Create Gallery")
