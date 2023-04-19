@@ -1,7 +1,7 @@
 from flask import Blueprint, request, redirect, render_template, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user
-from forms import RegisterForm
+from forms import RegisterForm, LoginForm
 from models import User
 from app import db
 from uuid import uuid4
@@ -43,3 +43,22 @@ def register():
             print(err)
 
     return render_template('register.html', form=form)
+
+@auth.route('/', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        email = form.email.data
+        password = form.password.data
+
+        try:
+            user = User.query.filter_by(email=email).first()
+            if user and check_password_hash(user.password, password):
+                login_user(user, remember=True)
+                return redirect(url_for('routes.index'))
+            else:
+                print('Invalid credentials')
+        except Exception as err:
+            print(err)
+
+    return render_template('login.html', form=form)

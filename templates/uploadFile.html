@@ -2,8 +2,16 @@
 {% block content %}
 <h1>Upload new File</h1>
 <form method="post" action="{{url_for('routes.upload')}}" enctype="multipart/form-data">
-    <input type="file" name="file">
-    <input type="submit" value="Upload">
+    {{form.hidden_tag()}}
+    <div>
+        {{form.file.label}}
+        {{form.file}}
+    </div>
+    <div>
+        {{form.description.label}}
+        {{form.description}}
+    </div>
+    {{form.submit}}
 </form>
 
 {% endblock %}

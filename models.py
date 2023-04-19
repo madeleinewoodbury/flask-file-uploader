@@ -12,6 +12,6 @@ class User(db.Model, UserMixin):
 class Image(db.Model):
     id = db.Column(db.String(50), primary_key=True)
     url = db.Column(db.String(255), nullable=False, unique=True)
-    created_at = db.Column(db.DateTime(timezone=True), default=func.now())
-    user = db.Column(db.String(50), db.ForeignKey('user.id'))
     description = db.Column(db.String(150))
+    user = db.Column(db.String(50), db.ForeignKey('user.id'))
+    created_at = db.Column(db.DateTime(timezone=True), default=func.now())

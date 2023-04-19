@@ -15,17 +15,19 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DB_URI')
 app.config['UPLOAD_FOLDER'] = 'images'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
+
 db.init_app(app)
 
 from auth import auth
 from routes import routes
-app.register_blueprint(routes, url_prefix='/')
-app.register_blueprint(auth, url_prefix='/auth')
+app.register_blueprint(routes)
+app.register_blueprint(auth)
 
 migrate = Migrate(app, db)
 import models
 
 login_manager = LoginManager()
+login_manager.login_view = 'auth.login'
 login_manager.init_app(app)
 
 @login_manager.user_loader

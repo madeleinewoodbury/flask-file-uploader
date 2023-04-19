@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<section>
+    {% if user %}
+    <h1>Welcome {{user.username}}</h1>
+    {% endif %}
+    <a href="{{url_for('routes.upload')}}">Upload file</a>
+</section>
+
+{% endblock %}
