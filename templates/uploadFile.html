@@ -1,17 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Upload new File</h1>
-<form method="post" action="{{url_for('routes.upload', id=id)}}" enctype="multipart/form-data">
-    {{form.hidden_tag()}}
-    <div>
-        {{form.file.label}}
-        {{form.file}}
-    </div>
-    <div>
-        {{form.description.label}}
-        {{form.description}}
-    </div>
-    {{form.submit}}
-</form>
+<section class="container">
+    <h2>Upload a new image</h2>
+    <form method="post" action="{{url_for('routes.upload', id=id)}}" enctype="multipart/form-data">
+        {{form.hidden_tag()}}
+        <div class="form-group">
+            {{form.file.label}}
+            {{form.file}}
+        </div>
+        <div class="form-group">
+            {{form.description.label}}
+            {{form.description}}
+        </div>
+        {{form.submit(class='btn btn-secondary')}}
+    </form>
+</section>
 
 {% endblock %}

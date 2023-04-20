@@ -75,6 +75,10 @@ textarea {
   background-color: var(--light-color);
 }
 
+input[type='file'] {
+  color: black;
+}
+
 .btn-container .btn {
   margin-right: 0.5rem;
 }
