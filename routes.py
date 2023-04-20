@@ -12,6 +12,8 @@ routes = Blueprint('routes', __name__)
 @login_required
 def index():
     galleries = Gallery.query.filter_by(user=current_user.id).all()
+    for gallery in galleries:
+        gallery.image_count = len(gallery.images)
     return render_template('home.html', user=current_user, galleries=galleries)
 
 @routes.route('/add-gallery', methods=['GET', 'POST'])

@@ -3,13 +3,22 @@
 <section class="container">
     <h2>Your galleries</h2>
     <a href="{{url_for('routes.create_gallery')}}" class="btn btn-primary">New Gallery</a>
-    {% for gallery in galleries%}
-    <ul>
-        <li>
+    <div class="card-container">
+        {% for gallery in galleries%}
+        <div class="card">
+            {% if gallery.images%}
+            <img src="{{gallery.images[0].url}}" alt="">
+            {% else %}
+            <img src="https://lanecdr.org/wp-content/uploads/2019/08/placeholder.png" alt="placeholder">
+
+            {% endif %}
             <a href="{{url_for('routes.gallery', id=gallery.id)}}">{{gallery.title}}</a>
-        </li>
-    </ul>
-    {% endfor %}
+            <p>{{gallery.description}}</p>
+        </div>
+        {% endfor %}
+
+    </div>
+
 </section>
 
 {% endblock %}
