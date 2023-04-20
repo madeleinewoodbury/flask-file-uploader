@@ -6,7 +6,11 @@
     {% endif %}
     <a href="{{url_for('routes.create_gallery')}}">New Gallery</a>
     {% for gallery in galleries%}
-    <p>{{gallery.title}}</p>
+    <ul>
+        <li>
+            <a href="{{url_for('routes.gallery', id=gallery.id)}}">{{gallery.title}}</a>
+        </li>
+    </ul>
     {% endfor %}
 </section>
 

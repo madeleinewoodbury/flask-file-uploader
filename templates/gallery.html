@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<section>
+    {% if gallery %}
+    <h2>{{gallery.title}}</h2>
+    <p>{{gallery.description}}</p>
+    <a href="{{url_for('routes.upload', id=gallery.id)}}">Upload image</a>
+    {% for image in gallery.images%}
+    <div>
+        <img src="{{image.url}}" alt="">
+    </div>
+    {% endfor%}
+    {% endif %}
+</section>
+
+{% endblock %}
