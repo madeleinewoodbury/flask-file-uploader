@@ -20,6 +20,7 @@ class LoginForm(FlaskForm):
 
 
 class ImageForm(FlaskForm):
+    info = "Allowed extensions: " + ', '.join(ALLOWED_EXTENSIONS)
     file = FileField("Select file to upload", validators=[FileRequired(), FileAllowed(ALLOWED_EXTENSIONS)])
     description = TextAreaField("Description", validators=[Length(max=150)])
     submit = SubmitField("Upload")

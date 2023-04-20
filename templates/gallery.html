@@ -10,9 +10,9 @@
         <a href="#" class="btn btn-danger">Delete gallery</a>
     </div>
 
-    <div class="grid image-container" data-masonry='{ "itemSelector": ".grid-item"}'>
+    <div class="grid card-container" data-masonry='{ "itemSelector": ".image-card"}'>
         {% for image in gallery.images%}
-        <div class="grid-item image-card">
+        <div class="image-card">
             <a href="#">
                 <img src="{{image.url}}" alt="">
             </a>

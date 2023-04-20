@@ -1,26 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-<section>
-    <h2>Register new user</h2>
+<section class="container">
+    <h2 class="text-center">Register new user</h2>
     <form method="POST" action={{url_for('auth.register')}}>
         {{form.hidden_tag()}}
-        <div>
+        <div class="form-group">
             {{form.username.label}}
             {{form.username}}
         </div>
-        <div>
+        <div class="form-group">
             {{form.email.label}}
             {{form.email}}
         </div>
-        <div>
+        <div class="form-group">
             {{form.password.label}}
             {{form.password}}
         </div>
-        <div>
+        <div class="form-group">
             {{form.password2.label}}
             {{form.password2}}
         </div>
-        {{form.submit}}
+        {{form.submit(class='btn btn-secondary')}}
     </form>
 </section>
 

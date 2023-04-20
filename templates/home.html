@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 <section class="container">
-    <h2>Your galleries</h2>
+    <h2 class="text-center">Your galleries</h2>
     <a href="{{url_for('routes.create_gallery')}}" class="btn btn-primary">New Gallery</a>
-    <div class="card-container">
+
+    <div class="grid card-container" data-masonry='{ "itemSelector": ".card"}'>
         {% for gallery in galleries%}
         <div class="card">
             {% if gallery.images%}

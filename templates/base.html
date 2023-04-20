@@ -9,6 +9,18 @@
 </head>
 
 <body>
+    <nav>
+        <h1 class="brand">Image Gallery</h1>
+        <ul class="nav-links">
+            <li class="nav-link">
+                <a href="{{url_for('routes.index')}}">My Galleries</a>
+            </li>
+            <li class="nav-link">
+                <a href="#">Logout</a>
+            </li>
+
+        </ul>
+    </nav>
     <main>
         {% block content %}
         {% endblock %}

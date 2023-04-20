@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 <section class="container">
-    <h2>Upload a new image</h2>
+    <h2 class="text-center">Upload a new image</h2>
     <form method="post" action="{{url_for('routes.upload', id=id)}}" enctype="multipart/form-data">
         {{form.hidden_tag()}}
         <div class="form-group">
             {{form.file.label}}
             {{form.file}}
+            {{form.info}}
         </div>
         <div class="form-group">
             {{form.description.label}}
