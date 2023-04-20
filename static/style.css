@@ -34,6 +34,20 @@ h2 {
   font-size: 2rem;
 }
 
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+li a {
+  color: var(--light-color);
+}
+
 form {
   max-width: 800px;
   margin: 0 auto;

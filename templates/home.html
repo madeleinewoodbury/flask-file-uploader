@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-<section>
-    {% if user %}
-    <h1>Welcome {{user.username}}</h1>
-    {% endif %}
-    <a href="{{url_for('routes.create_gallery')}}">New Gallery</a>
+<section class="container">
+    <h2>Your galleries</h2>
+    <a href="{{url_for('routes.create_gallery')}}" class="btn btn-primary">New Gallery</a>
     {% for gallery in galleries%}
     <ul>
         <li>
