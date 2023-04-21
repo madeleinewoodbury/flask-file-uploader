@@ -4,17 +4,28 @@
     <h2 class="text-center">Your galleries</h2>
     <a href="{{url_for('routes.create_gallery')}}" class="btn btn-primary">New Gallery</a>
 
-    <div class="grid card-container" data-masonry='{ "itemSelector": ".card"}'>
+    <div class="card-container">
         {% for gallery in galleries%}
         <div class="card">
-            {% if gallery.images%}
-            <img src="{{gallery.images[0].url}}" alt="">
-            {% else %}
-            <img src="https://lanecdr.org/wp-content/uploads/2019/08/placeholder.png" alt="placeholder">
+            <div class="card-poster">
+                {% if gallery.images%}
+                <img src="{{gallery.images[0].url}}" alt="">
+                {% else %}
+                <img src="https://lanecdr.org/wp-content/uploads/2019/08/placeholder.png" alt="placeholder">
 
-            {% endif %}
-            <a href="{{url_for('routes.gallery', id=gallery.id)}}">{{gallery.title}}</a>
-            <p>{{gallery.description}}</p>
+                {% endif %}
+            </div>
+            <div class="card-info">
+                <div class="card-content">
+                    <a href="{{url_for('routes.gallery', id=gallery.id)}}">{{gallery.title}}</a>
+                    <p>{{gallery.description}}</p>
+                </div>
+                <div class="btn-container">
+                    <a href="{{url_for('routes.gallery', id=gallery.id)}}" class="btn btn-secondary">View</a>
+                    <a href="#" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+
         </div>
         {% endfor %}
 
