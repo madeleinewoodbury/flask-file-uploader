@@ -12,13 +12,21 @@
     <nav>
         <h1 class="brand">Image Gallery</h1>
         <ul class="nav-links">
+            {% if user %}
             <li class="nav-link">
                 <a href="{{url_for('routes.index')}}">My Galleries</a>
             </li>
             <li class="nav-link">
                 <a href="{{url_for('auth.logout')}}">Logout</a>
             </li>
-
+            {% else%}
+            <li class="nav-link">
+                <a href="{{url_for('auth.register')}}">Register</a>
+            </li>
+            <li class="nav-link">
+                <a href="{{url_for('auth.login')}}">Login</a>
+            </li>
+            {% endif%}
         </ul>
     </nav>
     <main>

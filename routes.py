@@ -30,14 +30,14 @@ def create_gallery():
         db.session.commit()
         return redirect(url_for('routes.index'))
 
-    return render_template('addGallery.html', form=form)
+    return render_template('addGallery.html', form=form, user=current_user)
 
 @routes.route('/gallery')
 @login_required
 def gallery():
     id = request.args['id']
     gallery = Gallery.query.filter_by(id=id).first()
-    return render_template('gallery.html', gallery=gallery)
+    return render_template('gallery.html', gallery=gallery, user=current_user)
 
 
 @routes.route('/upload', methods=['GET', 'POST'])
@@ -69,4 +69,4 @@ def upload():
                 print(err)
     
 
-    return render_template('uploadFile.html', form=form, id=gallery_id)
+    return render_template('uploadFile.html', form=form, id=gallery_id, user=current_user)
