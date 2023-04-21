@@ -1,3 +1,4 @@
+from telnetlib import GA
 from uuid import uuid4
 from flask import Blueprint, redirect, render_template, request, url_for
 from flask_login import current_user, login_required
@@ -70,3 +71,23 @@ def upload():
     
 
     return render_template('uploadFile.html', form=form, id=gallery_id, user=current_user)
+
+@routes.route('/confirm-delete-gallery')
+@login_required
+def delete_gallery_confirm():
+    id = request.args['id']
+    gallery = Gallery.query.filter_by(id=id).first()
+    
+    return render_template('deleteConfirm.html', gallery=gallery)
+
+@routes.route('/delete-gallery')
+@login_required
+def delete_gallery():
+    id = request.args['id']
+    gallery = Gallery.query.get(id)
+    if gallery:
+        if gallery.user == current_user.id:
+            db.session.delete(gallery)
+            db.session.commit()
+    
+    return redirect(url_for('routes.index'))

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="container flex">
+    <div class="delete-confirm">
+        {% if gallery %}
+        <h2>Delete '{{gallery.title}}'</h2>
+        <p>Are you sure you wish to delete this gallery?</p>
+        <p>Doing so will also delete all images currently in the gallery.</p>
+        <div class="btn-container">
+            <a href="{{url_for('routes.index')}}" class="btn btn-secondary">No, keep gallery</a>
+            <a href="{{url_for('routes.delete_gallery', id=gallery.id)}}" class="btn btn-danger">Yes, delete</a>
+        </div>
+        {% endif %}
+    </div>
+
+</section>
+
+
+{% endblock %}

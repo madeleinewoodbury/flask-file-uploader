@@ -30,6 +30,11 @@ body {
   margin: 0 auto;
 }
 
+.container.flex {
+  display: flex;
+  justify-content: center;
+}
+
 h2 {
   font-size: 2rem;
 }
@@ -236,4 +241,19 @@ input[type='file'] {
 
 .image-card:hover {
   filter: brightness(1.1);
+}
+
+.delete-confirm {
+  background-color: var(--primary-darker-color);
+  box-shadow: 3px 4px 15px -9px rgba(0, 0, 0, 0.85);
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+}
+
+.delete-confirm p {
+  font-size: 1.3rem;
+}
+
+.delete-confirm .btn-container {
+  margin-top: 2rem;
 }
