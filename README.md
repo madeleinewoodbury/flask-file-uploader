@@ -1,6 +1,6 @@
 # Flask File Uploader
 
-A simple application that allows users to register and upload images to cloudinary. The app uses Flask and MySQL.
+A simple application that allows users to register and upload images to cloudinary. The app uses Flask and MySQL and the Cloudinary API.
 
 #### 1. Install requirements
 
